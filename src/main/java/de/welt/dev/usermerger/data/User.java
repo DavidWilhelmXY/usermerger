@@ -1,7 +1,5 @@
 package de.welt.dev.usermerger.data;
 
-import java.util.Collection;
-
 public class User {
 
     private Long id;
@@ -20,9 +18,9 @@ public class User {
 
     private Company company;
 
-    private Collection<Comment> comments;
+    private Comment[] comments;
 
-    public User(Long id, String name, String username, String email, Address address, String phone, String website, Company company, Collection<Comment> comments) {
+    public User(Long id, String name, String username, String email, Address address, String phone, String website, Company company, Comment[] comments) {
         this.id = id;
         this.name = name;
         this.username = username;
@@ -98,12 +96,12 @@ public class User {
         this.company = company;
     }
 
-    public Collection<Comment> getComments() {
+    public Comment[] getComments() {
         return comments;
     }
 
-    public void setComments(Collection<Comment> comments) {
+    public void setComments(Comment[] comments) {
         this.comments = comments;
     }
-    
+
 }
