@@ -1,3 +1,5 @@
+package de.welt.dev.usermerger.data;
+
 public class Company {
 
     private String name;

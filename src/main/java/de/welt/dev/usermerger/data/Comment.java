@@ -1,3 +1,5 @@
+package de.welt.dev.usermerger.data;
+
 public class Comment {
 
     private Long id;

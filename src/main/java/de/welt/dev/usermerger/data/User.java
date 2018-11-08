@@ -1,3 +1,5 @@
+package de.welt.dev.usermerger.data;
+
 import java.util.Collection;
 
 public class User {

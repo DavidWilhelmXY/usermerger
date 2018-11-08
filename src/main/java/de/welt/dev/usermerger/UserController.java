@@ -1,3 +1,6 @@
+package de.welt.dev.usermerger;
+
+import de.welt.dev.usermerger.data.User;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

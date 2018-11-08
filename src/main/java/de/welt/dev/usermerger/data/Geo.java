@@ -1,3 +1,5 @@
+package de.welt.dev.usermerger.data;
+
 public class Geo {
 
     private Double lat;

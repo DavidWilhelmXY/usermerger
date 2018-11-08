@@ -1,3 +1,6 @@
+package de.welt.dev.usermerger;
+
+import de.welt.dev.usermerger.data.User;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.web.client.RestTemplate;
