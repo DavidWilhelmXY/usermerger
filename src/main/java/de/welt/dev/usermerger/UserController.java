@@ -18,7 +18,7 @@ public class UserController {
 
     @RequestMapping(value = "/users/{id}", method = RequestMethod.GET)
     public User user(@PathVariable("id") long id) {
-        return buildUser(id); //TODO
+        return buildUser(id);
     }
 
     private User buildUser(long id) {
