@@ -21,7 +21,7 @@ public class ApplicationTest {
     private TestRestTemplate restTemplate;
 
     @Test
-    public void greetingShouldReturnDefaultMessage() throws Exception {
+    public void userHasComments() throws Exception {
         User user = this.restTemplate.getForObject("http://localhost:" + port + "/users/1", User.class);
         assert user != null;
         assert user.getId() != null;

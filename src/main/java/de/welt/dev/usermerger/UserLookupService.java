@@ -2,34 +2,25 @@ package de.welt.dev.usermerger;
 
 import de.welt.dev.usermerger.data.Comment;
 import de.welt.dev.usermerger.data.User;
-import org.springframework.boot.web.client.RestTemplateBuilder;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
-
-import java.util.concurrent.CompletableFuture;
+import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.publisher.Mono;
 
 @Service
 public class UserLookupService {
 
-    private final RestTemplate restTemplate;
+    private final WebClient webClient;
 
-    public UserLookupService(RestTemplateBuilder restTemplateBuilder) {
-        this.restTemplate = restTemplateBuilder.build();
+    public UserLookupService(WebClient.Builder webClientBuilder) {
+        this.webClient = webClientBuilder.baseUrl("https://jsonplaceholder.typicode.com").build();
     }
 
-    @Async
-    CompletableFuture<User> findUser(long id) {
-        String url = String.format("https://jsonplaceholder.typicode.com/users/%d", id);
-        User results = restTemplate.getForObject(url, User.class);
-        return CompletableFuture.completedFuture(results);
+    Mono<User> findUser(long id) {
+        return webClient.get().uri("/users/" + id).retrieve().bodyToMono(User.class);
     }
 
-    @Async
-    CompletableFuture<Comment[]> findComments(long userId) {
-        String url = String.format("https://jsonplaceholder.typicode.com/posts?userId=%d", userId);
-        Comment[] results = restTemplate.getForObject(url, Comment[].class);
-        return CompletableFuture.completedFuture(results);
+    Mono<Comment[]> findComments(long userId) {
+        return webClient.get().uri("/posts?userId=" + userId).retrieve().bodyToMono(Comment[].class);
     }
 
 }
